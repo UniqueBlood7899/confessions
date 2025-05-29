@@ -35,6 +35,10 @@ export async function POST(request) {
       return NextResponse.json({ message: 'Content is required and must be a string' }, { status: 400 });
     }
 
+    if (content.length > 2000) {
+      return NextResponse.json({ message: 'Confession cannot be more than 2000 characters' }, { status: 400 });
+    }
+
     // Create and save the confession with only content
     const confession = await Confession.create({ content });
 
