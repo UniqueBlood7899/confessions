@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { initializeServer } from './utils/serverInit';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,10 +14,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// Only run initialization on the server side
-if (typeof window === 'undefined') {
-  initializeServer();
-}
 
 export const metadata: Metadata = {
   title: "Confessions App",
